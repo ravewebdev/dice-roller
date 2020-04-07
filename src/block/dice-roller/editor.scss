@@ -2,6 +2,17 @@
 
 .wp-block-rave-dice-roller {
 
+	.number-setting {
+		margin-bottom: 1rem;
+		text-align: center;
+
+		.components-text-control__input {
+			display: block;
+			margin: 0 auto;
+			width: auto;
+		}
+	}
+
 	.die-setting {
 
 		.components-base-control__field {
@@ -30,8 +41,8 @@
 			.option-icon {
 				
 				svg {
-					height: 75px;
-					width: 75px;
+					height: 50px;
+					width: 50px;
 				}
 			}
 		}
