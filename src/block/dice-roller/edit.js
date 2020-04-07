@@ -1,7 +1,7 @@
 /**
  * EDIT: Dice Roller Block.
  */
-import { RadioControl } from '@wordpress/components';
+import { RadioControl, TextControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 import icons from './icons';
@@ -9,6 +9,7 @@ import icons from './icons';
 const Edit = ( props ) => {
 	const {
 		attributes: {
+			number,
 			die,
 		},
 		className,
@@ -16,17 +17,12 @@ const Edit = ( props ) => {
         isSelected,
 	} = props;
 
-	// Update field content on change.
-	const onChangeDie = ( die ) => {
-		setAttributes( { die } );
-	};
-
 	const setDieOption = ( label, value ) => {
 		return {
 			label: (
 				<>
-					<span className="icon-label">{ label }</span>
-					<div className={ `icon-${value}` }>
+					<span className="option-label">{ label }</span>
+					<div className={ `option-icon icon-${value}` }>
 						{ icons[ value ] }
 					</div>
 				</>
@@ -37,8 +33,17 @@ const Edit = ( props ) => {
 
 	return (
 		<div className={ className }>
+			<TextControl
+				label={ __( 'Number of Dice', 'dice-roller' ) }
+				type="number"
+				value={ number }
+				className="number-setting"
+				onChange={ ( number ) => {
+					setAttributes( { number } )
+				} }
+			/>
 			<RadioControl
-				label={ __( 'Die', 'dice-roller' ) }
+				label={ __( 'Type of Die', 'dice-roller' ) }
 				selected={ die }
 				className="die-setting"
 				options={ [
@@ -51,7 +56,9 @@ const Edit = ( props ) => {
 					setDieOption( __( 'D4', 'dice-roller' ), 'd4' ),
 					setDieOption( __( 'D2', 'dice-roller' ), 'd2' ),
 				] }
-				onChange={ onChangeDie }
+				onChange={ ( die ) => {
+					setAttributes( { die } )
+				} }
 			/>
 		</div>
 	);

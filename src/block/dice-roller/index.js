@@ -16,6 +16,10 @@ registerBlockType( 'rave/dice-roller', {
 		__( 'dice roller', 'dice-roller' ),
 	],
 	attributes: {
+		number: {
+			type: 'number',
+			default: '1',
+		},
 		die: {
 			type: 'string',
 			default: 'd20',
