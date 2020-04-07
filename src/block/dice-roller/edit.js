@@ -1,5 +1,5 @@
 /**
- * EDIT: Rich Rext Block
+ * EDIT: Dice Roller Block.
  */
 import { RichText } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';

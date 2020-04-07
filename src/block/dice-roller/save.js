@@ -1,5 +1,5 @@
 /**
- * SAVE: Rich Rext Block
+ * SAVE: Dice Roller Block.
  */
 import { RichText } from '@wordpress/block-editor';
 
