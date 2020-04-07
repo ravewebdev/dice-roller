@@ -3,13 +3,14 @@
  */
 import edit from './edit';
 import save from './save';
+import icons from './icons';
 
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
 
 registerBlockType( 'rave/dice-roller', {
 	title: __( 'Dice Roller', 'dice-roller' ),
-	icon: 'admin-generic',
+	icon: icons.d20,
 	category: 'widgets',
 	keywords: [
 		__( 'dice roller', 'dice-roller' ),
