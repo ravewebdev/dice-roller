@@ -31,3 +31,13 @@ Feel free to create an issue or PR in the [Github repo here](https://github.com/
 == Screenshots ==
 
 == Changelog ==
+
+== Credits ==
+* "D100" [polyhedron](https://thenounproject.com/term/polyhedron/1460323/) icon by emilegraphics from [the Noun Project](https://thenounproject.com).
+* "D20" [icosahedron](https://thenounproject.com/term/icosahedron/6890) icon by Alessandro Bertoni from [the Noun Project](https://thenounproject.com).
+* "D12" [dodecahedron](https://thenounproject.com/term/dodecahedron/6889) icon by Alessandro Bertoni from [the Noun Project](https://thenounproject.com).
+* "D10" [decahedron](https://thenounproject.com/term/decahedron/6888) icon by Alessandro Bertoni from [the Noun Project](https://thenounproject.com).
+* "D8" [octahedron](https://thenounproject.com/term/octahedron/6891) icon by Alessandro Bertoni from [the Noun Project](https://thenounproject.com).
+* "D6" [cube](https://thenounproject.com/term/cube/6887/) icon by Alessandro Bertoni from [the Noun Project](https://thenounproject.com).
+* "D4" [tetrahedron](https://thenounproject.com/term/tetrahedron/6892) icon by Alessandro Bertoni from [the Noun Project](https://thenounproject.com).
+* "D2" [coin](https://thenounproject.com/term/coin/754499) icon by Bakunetsu Kaito from [the Noun Project](https://thenounproject.com).
