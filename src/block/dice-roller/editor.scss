@@ -1,4 +1,39 @@
 // WordPress editor styles
 
 .wp-block-rave-dice-roller {
+
+	.die-setting {
+
+		.components-base-control__field {
+			display: flex;
+			flex-wrap: wrap;
+
+			label {
+				text-align: center;
+				width: 100%;
+			}
+		}
+
+		.components-radio-control__option {
+			text-align: center;
+			margin: 0.5rem 1rem;
+
+			input {
+				margin-right: 0;
+			}
+			
+			.option-label {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.option-icon {
+				
+				svg {
+					height: 75px;
+					width: 75px;
+				}
+			}
+		}
+	}
 }

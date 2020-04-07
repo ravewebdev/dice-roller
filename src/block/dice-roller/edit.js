@@ -40,6 +40,7 @@ const Edit = ( props ) => {
 			<RadioControl
 				label={ __( 'Die', 'dice-roller' ) }
 				selected={ die }
+				className="die-setting"
 				options={ [
 					setDieOption( __( 'D100', 'dice-roller' ), 'd100' ),
 					setDieOption( __( 'D20', 'dice-roller' ), 'd20' ),
