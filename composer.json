@@ -1,0 +1,15 @@
+{
+	"name": "rave/dice-roller",
+	"description": "A block for rolling polyhedral dice.",
+	"type": "wordpress-plugin",
+	"authors": [
+		{
+			"name": "R A Van Epps",
+			"email": "rave@ravanepps.com"
+		}
+	],
+	"require": {},
+	"require-dev": {
+		"webdevstudios/php-coding-standards": "^1.0"
+	}
+}
