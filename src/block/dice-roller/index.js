@@ -25,6 +25,9 @@ registerBlockType( 'rave/dice-roller', {
 			default: 'd20',
 		},
 	},
+	supports: {
+		align: [ 'left', 'center', 'right', 'wide', 'full', ],
+	},
 	edit,
 	save,
 } );
