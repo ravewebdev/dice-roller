@@ -1,22 +1,23 @@
 /**
  * SAVE: Dice Roller Block.
  */
-import { RichText } from '@wordpress/block-editor';
+import Dice from './components/Dice';
 
 const Save = ( props ) => {
 	const {
 		attributes: {
-			content,
+			dice,
 		},
 		className,
 	} = props;
 
 	return (
-		<RichText.Content
-			className={ className }
-			tagName="p"
-			value={ content }
-		/>
+		<div className={ className }>
+			<Dice
+				dice={ dice }
+				emptyText={ null }
+			/>
+		</div>
 	);
 };
 
