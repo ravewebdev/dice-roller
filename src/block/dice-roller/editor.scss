@@ -3,8 +3,31 @@
 .wp-block-rave-dice-roller {
 
 	.die-icon {
-		height: 2rem;
+		height: 3rem;
 		margin-right: 0.5rem;
-		width: 2rem;
+		width: 3rem;
+	}
+}
+
+.dice-settings {
+	flex-direction: column;
+
+	.die-setting {
+		align-items: flex-end;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 2rem;
+		margin-right: 0;
+		max-width: unset;
+
+		.components-base-control {
+			margin-bottom: 0;
+		}
+
+		.die-icon {
+			height: 2.5rem;
+			margin-left: 1.5rem;
+			width: 2.5rem;
+		}
 	}
 }

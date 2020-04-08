@@ -49,7 +49,7 @@ const Edit = ( props ) => {
 					title={ __( 'Dice Roller Options', 'dice-roller' ) }
 					initialOpen={ true }
 				>
-					<PanelRow>
+					<PanelRow className="dice-settings">
 						{ Object.entries( dice ).map( ( die ) => {
 							const key = die[ 0 ];
 							const attrs = die[ 1 ];
