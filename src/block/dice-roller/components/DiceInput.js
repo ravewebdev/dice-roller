@@ -19,8 +19,8 @@ const DiceInput = ( props ) => {
 				label={ label }
 				type="number"
 				value={ number }
-				onChange={ () => {
-					onChangeDice( die, number );
+				onChange={ ( newNumber ) => {
+					onChangeDice( die, parseInt( newNumber, 10 ) );
 				} }
 			/>
 			{ icons[ die ] }
