@@ -2,49 +2,9 @@
 
 .wp-block-rave-dice-roller {
 
-	.number-setting {
-		margin-bottom: 1rem;
-		text-align: center;
-
-		.components-text-control__input {
-			display: block;
-			margin: 0 auto;
-			width: auto;
-		}
-	}
-
-	.die-setting {
-
-		.components-base-control__field {
-			display: flex;
-			flex-wrap: wrap;
-
-			label {
-				text-align: center;
-				width: 100%;
-			}
-		}
-
-		.components-radio-control__option {
-			text-align: center;
-			margin: 0.5rem 1rem;
-
-			input {
-				margin-right: 0;
-			}
-			
-			.option-label {
-				display: flex;
-				flex-direction: column;
-			}
-
-			.option-icon {
-				
-				svg {
-					height: 50px;
-					width: 50px;
-				}
-			}
-		}
+	.die-icon {
+		height: 2rem;
+		margin-right: 0.5rem;
+		width: 2rem;
 	}
 }
