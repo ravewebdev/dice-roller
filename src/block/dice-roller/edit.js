@@ -1,42 +1,32 @@
 /**
  * EDIT: Dice Roller Block.
  */
-import { PanelBody, PanelRow, RadioControl, TextControl } from '@wordpress/components';
+import { PanelBody, PanelRow } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
 
-import icons from './icons';
+import DiceInput from './components/DiceInput';
 
 const Edit = ( props ) => {
 	const {
 		attributes: {
-			number,
-			die,
+			dice,
 		},
 		className,
 		setAttributes,
-        isSelected,
 	} = props;
 
-	const setDieOption = ( label, value ) => {
-		return {
-			label: (
-				<>
-					<span className="option-label">{ label }</span>
-					<div className={ `option-icon icon-${value}` }>
-						{ icons[ value ] }
-					</div>
-				</>
-			),
-			value
-		}
+	// Update number of current die.
+	const onChangeDice = ( die, number ) => {
+		const newDice = { ...dice };
+		number = 0 > number ? 0 : number;
+
+		newDice[ die ].number = number;
+
+		setAttributes( {
+			dice: newDice,
+		} );
 	};
-
-	const dice = [];
-
-	for ( let i = 0; i < number; i++ ) {
-		dice.push( icons[ die ] );
-	}
 
 	return (
 		<>
@@ -46,40 +36,25 @@ const Edit = ( props ) => {
 					initialOpen={ true }
 				>
 					<PanelRow>
-						<TextControl
-							label={ __( 'Number of Dice', 'dice-roller' ) }
-							type="number"
-							value={ number }
-							className="number-setting"
-							onChange={ ( number ) => {
-								setAttributes( { number } )
-							} }
-						/>
-					</PanelRow>
-					<PanelRow>
-						<RadioControl
-							label={ __( 'Type of Die', 'dice-roller' ) }
-							selected={ die }
-							className="die-setting"
-							options={ [
-								setDieOption( __( 'D100', 'dice-roller' ), 'd100' ),
-								setDieOption( __( 'D20', 'dice-roller' ), 'd20' ),
-								setDieOption( __( 'D12', 'dice-roller' ), 'd12' ),
-								setDieOption( __( 'D10', 'dice-roller' ), 'd10' ),
-								setDieOption( __( 'D8', 'dice-roller' ), 'd8' ),
-								setDieOption( __( 'D6', 'dice-roller' ), 'd6' ),
-								setDieOption( __( 'D4', 'dice-roller' ), 'd4' ),
-								setDieOption( __( 'D2', 'dice-roller' ), 'd2' ),
-							] }
-							onChange={ ( die ) => {
-								setAttributes( { die } )
-							} }
-						/>
+						{ Object.entries( dice ).map( ( die ) => {
+							const key = die[ 0 ];
+							const attrs = die[ 1 ];
+
+							return (
+								<DiceInput
+									label={ attrs.label }
+									die={ key }
+									number={ attrs.number }
+									onChangeDice={ onChangeDice }
+									key={ key }
+								/>
+							);
+						} ) }
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
 			<div className={ className }>
-				{ dice }
+				{ console.log( 'dice',  dice ) }
 			</div>
 		</>
 	);
