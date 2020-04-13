@@ -21,10 +21,23 @@ const Dice = ( props ) => {
 			currentDice.push( icons[ key ] );
 		}
 
-		return currentDice;
+		return {
+			key,
+			diceList: [ ...currentDice ],
+		};
 	} );
 
-	return ( 0 === selectedDice.length ? emptyText : selectedDice );
+	return (
+		<div className="dice-list">
+			{ 0 === selectedDice.length ? emptyText : (
+				selectedDice.map( ( { key, diceList } ) => (
+					<div className={ `die-list ${ key }` } key={ key }>
+						{ diceList }
+					</div>
+				) )
+			) }
+		</div>
+	);
 };
 
 export default Dice;
