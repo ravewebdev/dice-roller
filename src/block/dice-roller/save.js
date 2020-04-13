@@ -1,6 +1,8 @@
 /**
  * SAVE: Dice Roller Block.
  */
+import { __ } from '@wordpress/i18n';
+
 import Dice from './components/Dice';
 
 const Save = ( props ) => {
@@ -17,6 +19,9 @@ const Save = ( props ) => {
 				dice={ dice }
 				emptyText={ null }
 			/>
+			<button type="button" className="roll-dice">
+				{ __( 'Roll these dice!', 'dice-roller' ) }
+			</button>
 		</div>
 	);
 };
