@@ -21,17 +21,23 @@
 	}
 
 	.die-icon {
-		animation-duration: 1s;
-		animation-iteration-count: infinite;
-		animation-name: die;
 		height: 6rem;
 		margin: 1rem;
-		transform-origin: 50% 50%;
 		width: 6rem;
 	}
 
 	.roll-dice {
 		display: block;
 		margin: 3rem auto 0;
+	}
+
+	&.rolling {
+
+		.die-icon {
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+			animation-name: die;
+			transform-origin: 50% 50%;
+		}
 	}
 }
