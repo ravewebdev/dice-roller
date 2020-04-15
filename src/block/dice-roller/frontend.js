@@ -20,16 +20,28 @@ rollers.forEach( ( roller ) => {
  * @return {void}
  */
 function rollCurrentDice( roller ) {
-	const button = roller.querySelectorAll( '.roll-dice' );
+	let button = roller.querySelectorAll( '.roll-dice' );
 
 	if ( ! button.length ) {
 		return;
 	}
 
-	button[ 0 ].addEventListener( 'click', function() {
-		const dice = roller.querySelectorAll( '.dice-list .die-list' );
+	button = button[0];
 
-		dice.forEach( animateDice );
+	button.addEventListener( 'click', function() {
+		const dice = roller.querySelectorAll( '.dice-list .die-list' );
+		const delay = 750;
+
+		button.disabled = true; // Disable button.
+
+		dice.forEach( ( dieList, index ) => {
+			animateDice( dieList, index, delay );
+		} );
+
+		// Enable button when animation completes.
+		setTimeout( function() {
+			button.disabled = false;
+		}, delay * dice.length );
 	} );
 }
 
@@ -43,11 +55,12 @@ function rollCurrentDice( roller ) {
  *
  * @param  {Object} dieList Wrapper node for current die list.
  * @param  {number} index   Index of current die list.
+ * @param  {number} delay   Number of milliseconds to delay between animations.
  */
-function animateDice( dieList, index ) {
+function animateDice( dieList, index, delay ) {
 	setTimeout( function() {
-		dieList.classList.toggle( rollingClass );
-	}, 1000 * ( index ) );
+		dieList.classList.toggle( rollingClass ); // Start animation.
+	}, delay * ( index ) );
 	setTimeout( function() {
 		const dieNum = parseInt( dieList.dataset.die.replace( 'd', '' ), 10 );
 		const dice = dieList.querySelectorAll( '.die' );
@@ -65,6 +78,6 @@ function animateDice( dieList, index ) {
 			);
 		} );
 
-		dieList.classList.toggle( rollingClass );
-	}, 1000 * ( index + 1 ) );
+		dieList.classList.toggle( rollingClass ); // Stop animation.
+	}, delay * ( index + 1 ) );
 }

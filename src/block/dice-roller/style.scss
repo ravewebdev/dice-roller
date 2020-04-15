@@ -29,6 +29,11 @@
 	.roll-dice {
 		display: block;
 		margin: 3rem auto 0;
+
+		&:disabled {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
 	}
 
 	.die-list {
@@ -36,7 +41,7 @@
 		&.rolling {
 
 			.die-icon {
-				animation-duration: 1s;
+				animation-duration: 0.75s;
 				animation-name: die;
 				transform-origin: 50% 50%;
 			}
