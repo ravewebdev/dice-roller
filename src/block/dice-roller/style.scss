@@ -31,13 +31,15 @@
 		margin: 3rem auto 0;
 	}
 
-	&.rolling {
+	.die-list {
 
-		.die-icon {
-			animation-duration: 1s;
-			animation-iteration-count: infinite;
-			animation-name: die;
-			transform-origin: 50% 50%;
+		&.rolling {
+
+			.die-icon {
+				animation-duration: 1s;
+				animation-name: die;
+				transform-origin: 50% 50%;
+			}
 		}
 	}
 }
