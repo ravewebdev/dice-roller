@@ -35,7 +35,7 @@ const Dice = ( props ) => {
 		<div className="dice-list">
 			{ 0 === selectedDice.length ? emptyText : (
 				selectedDice.map( ( { key, diceList } ) => (
-					<div className={ `die-list ${ key }` } data-die={ key } key={ key }>
+					<div className={ `die-list ${ key }` } data-die={ key } data-number={ diceList.length } key={ key }>
 						{ diceList }
 					</div>
 				) )
