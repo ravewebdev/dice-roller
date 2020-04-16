@@ -18,14 +18,17 @@ const Dice = ( props ) => {
 	selectedDice = selectedDice.map( ( die ) => {
 		const key = die[ 0 ];
 		const attrs = die[ 1 ];
+		const dieNum = parseInt( key.replace( 'd', '' ), 10 );
 		const currentDice = [];
 
 		for ( let i = 0; i < attrs.number; i++ ) {
+			const roll = isRolling ? Math.ceil( Math.random() * dieNum ) : null;
+
 			currentDice.push(
-				<div className="die">
+				<div className="die" key={ `${ key }_${ i }` }>
 					{ icons[ key ] }
 					{ isLive && (
-						<div className="die-roll">&nbsp;</div>
+						<div className="die-roll">{ roll }</div>
 					) }
 				</div>
 			);
