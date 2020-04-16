@@ -7,6 +7,7 @@ const Dice = ( props ) => {
 	const {
 		dice,
 		emptyText,
+		live,
 	} = props;
 	let selectedDice = Object.entries( dice ).filter( ( die ) => {
 		return ( 0 < die[ 1 ].number );
@@ -21,6 +22,9 @@ const Dice = ( props ) => {
 			currentDice.push(
 				<div className="die">
 					{ icons[ key ] }
+					{ live && (
+						<div className="die-roll">&nbsp;</div>
+					) }
 				</div>
 			);
 		}
