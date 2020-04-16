@@ -12,6 +12,8 @@ const FrontendDiceList = ( props ) => {
 		className,
 	} = props;
 
+	const [ isRolling, setIsRolling ] = useState( false );
+
 	return (
 		<div className={ className }>
 			<Dice
@@ -19,8 +21,12 @@ const FrontendDiceList = ( props ) => {
 				emptyText={ null }
 				live={ true }
 			/>
-			<button type="button" className="roll-dice">
-				{ __( 'Roll these dice!', 'dice-roller' ) }
+			<button
+				type="button"
+				className="roll-dice"
+				disabled={ isRolling }
+			>
+				{ isRolling ? __( 'Rolling...', 'dice-roller' ) : __( 'Roll these dice!', 'dice-roller' ) }
 			</button>
 		</div>
 	);
