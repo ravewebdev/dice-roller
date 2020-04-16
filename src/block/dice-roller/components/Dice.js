@@ -7,8 +7,10 @@ const Dice = ( props ) => {
 	const {
 		dice,
 		emptyText,
-		live,
+		isLive,
+		isRolling,
 	} = props;
+
 	let selectedDice = Object.entries( dice ).filter( ( die ) => {
 		return ( 0 < die[ 1 ].number );
 	} );
@@ -22,7 +24,7 @@ const Dice = ( props ) => {
 			currentDice.push(
 				<div className="die">
 					{ icons[ key ] }
-					{ live && (
+					{ isLive && (
 						<div className="die-roll">&nbsp;</div>
 					) }
 				</div>
@@ -39,7 +41,7 @@ const Dice = ( props ) => {
 		<div className="dice-list">
 			{ 0 === selectedDice.length ? emptyText : (
 				selectedDice.map( ( { key, diceList } ) => (
-					<div className={ `die-list ${ key }` } data-die={ key } data-number={ diceList.length } key={ key }>
+					<div className={ `die-list ${ key } ${ isRolling ? 'rolling' : '' }` } data-die={ key } data-number={ diceList.length } key={ key }>
 						{ diceList }
 					</div>
 				) )

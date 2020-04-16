@@ -19,12 +19,19 @@ const FrontendDiceList = ( props ) => {
 			<Dice
 				dice={ dice }
 				emptyText={ null }
-				live={ true }
+				isLive={ true }
+				isRolling={ isRolling }
 			/>
 			<button
 				type="button"
 				className="roll-dice"
 				disabled={ isRolling }
+				onClick={ () => {
+					setIsRolling( true );
+					setTimeout( () => {
+						setIsRolling( false );
+					}, 750 );
+				} }
 			>
 				{ isRolling ? __( 'Rolling...', 'dice-roller' ) : __( 'Roll these dice!', 'dice-roller' ) }
 			</button>
