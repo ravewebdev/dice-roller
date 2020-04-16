@@ -19,9 +19,6 @@ const Save = ( props ) => {
 				dice={ dice }
 				emptyText={ null }
 			/>
-			<button type="button" className="roll-dice">
-				{ __( 'Roll these dice!', 'dice-roller' ) }
-			</button>
 		</div>
 	);
 };
