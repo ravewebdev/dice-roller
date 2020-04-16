@@ -1,13 +1,13 @@
 /**
  * REGISTER: Dice Roller Block.
  */
+import { __ } from '@wordpress/i18n';
+import { registerBlockType } from '@wordpress/blocks';
+
 import edit from './edit';
 import save from './save';
 import icons from './icons';
-import dice from './dice';
-
-import { __ } from '@wordpress/i18n';
-import { registerBlockType } from '@wordpress/blocks';
+import diceAttr from './diceAttr';
 
 registerBlockType( 'rave/dice-roller', {
 	title: __( 'Dice Roller', 'dice-roller' ),
@@ -17,7 +17,7 @@ registerBlockType( 'rave/dice-roller', {
 		__( 'dice roller', 'dice-roller' ),
 	],
 	attributes: {
-		dice,
+		dice: diceAttr,
 	},
 	supports: {
 		align: [ 'left', 'center', 'right', 'wide', 'full' ],

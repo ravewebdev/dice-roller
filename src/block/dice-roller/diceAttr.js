@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 
-const dice = {
+const diceAttr = {
 	type: 'object',
 	default: {
 		d100: {
@@ -41,4 +41,4 @@ const dice = {
 	},
 };
 
-export default dice;
+export default diceAttr;
