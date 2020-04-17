@@ -6,21 +6,14 @@ import FrontendDiceList from './components/FrontendDiceList';
 const { render } = wp.element;
 
 const wrapClass = 'wp-block-rave-dice-roller';
-const rollers = document.querySelectorAll( `.${wrapClass}` );
+const rollers = document.querySelectorAll( `.${ wrapClass }` );
 
 rollers.forEach( ( roller ) => {
 	const dieLists = roller.querySelectorAll( '.dice-list .die-list' );
-	const dice = {};
-
-	dieLists.forEach( ( dieList ) => {
-		dice[ dieList.dataset.die ] = {
-			number: dieList.dataset.number,
-		};
-	} );
 
 	render(
 		<FrontendDiceList
-			dice={ dice }
+			dieLists={ dieLists }
 			className={ wrapClass }
 		/>,
 		roller
