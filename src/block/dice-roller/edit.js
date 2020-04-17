@@ -12,7 +12,6 @@ const Edit = ( props ) => {
 	const {
 		attributes: {
 			dice,
-			multiDieFn,
 		},
 		className,
 		setAttributes,

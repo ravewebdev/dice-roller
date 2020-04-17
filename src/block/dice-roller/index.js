@@ -18,9 +18,6 @@ registerBlockType( 'rave/dice-roller', {
 	],
 	attributes: {
 		dice: diceAttr,
-		multiDieFn: {
-			type: 'string',
-		},
 	},
 	supports: {
 		align: [ 'left', 'center', 'right', 'wide', 'full' ],
