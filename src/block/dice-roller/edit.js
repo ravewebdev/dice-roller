@@ -1,7 +1,7 @@
 /**
  * EDIT: Dice Roller Block.
  */
-import { PanelBody, PanelRow } from '@wordpress/components';
+import { PanelBody, PanelRow, SelectControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
 
@@ -28,6 +28,17 @@ const Edit = ( props ) => {
 		} );
 	};
 
+	// Update multi-die fn for current die.
+	const onChangeMultiDieFn = ( die, multiDieFn ) => {
+		const newDice = { ...dice };
+		multiDieFn = '' === multiDieFn ? null : multiDieFn;
+		newDice[ die ].multiDieFn = multiDieFn;
+
+		setAttributes( {
+			dice: newDice,
+		} );
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -38,10 +49,10 @@ const Edit = ( props ) => {
 					<PanelRow className="dice-settings">
 						{ Object.entries( dice ).map( ( die ) => {
 							const key = die[ 0 ];
-							const { label, number } = die[ 1 ];
+							const { label, number, multiDieFn } = die[ 1 ];
 
 							return (
-								<>
+								<div className="die-options" key={ key }>
 									<DiceInput
 										label={ label }
 										die={ key }
@@ -49,7 +60,24 @@ const Edit = ( props ) => {
 										onChangeDice={ onChangeDice }
 										key={ key }
 									/>
-								</>
+									{ 1 < number && (
+										<SelectControl
+											label={ __( 'Multi-die handling', 'dice-roller' ) }
+											value={ multiDieFn }
+											options={ [
+												{ value: '', label: __( '-- Select --', 'dice-roller' ) },
+												{ value: 'sum', label: __( 'Add all rolls together', 'dice-roller' ) },
+												{ value: 'take-highest', label: __( 'Keep the highest roll', 'dice-roller' ) },
+												{ value: 'take-lowest', label: __( 'Keep the lowest roll', 'dice-roller' ) },
+												{ value: 'drop-highest', label: __( 'Drop the highest roll', 'dice-roller' ) },
+												{ value: 'drop-lowest', label: __( 'Drop the lowest roll', 'dice-roller' ) },
+											] }
+											onChange={ ( newMultiDieFn ) => {
+												onChangeMultiDieFn( key, newMultiDieFn );
+											} }
+										/>
+									) }
+								</div>
 							);
 						} ) }
 					</PanelRow>
