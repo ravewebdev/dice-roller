@@ -35,6 +35,7 @@ const Dice = ( props ) => {
 
 		return {
 			key,
+			multiDieFn: attrs.multiDieFn,
 			diceList: [ ...currentDice ],
 		};
 	} );
@@ -42,8 +43,14 @@ const Dice = ( props ) => {
 	return (
 		<div className="dice-list">
 			{ 0 === selectedDice.length ? emptyText : (
-				selectedDice.map( ( { key, diceList } ) => (
-					<div className={ `die-list ${ key } ${ isRolling ? 'rolling' : '' }` } data-die={ key } data-number={ diceList.length } key={ key }>
+				selectedDice.map( ( { key, multiDieFn, diceList } ) => (
+					<div
+						className={ `die-list ${ key } ${ isRolling ? 'rolling' : '' }` }
+						data-die={ key }
+						data-number={ diceList.length }
+						data-multidiefn={ multiDieFn }
+						key={ key }
+					>
 						{ diceList }
 					</div>
 				) )

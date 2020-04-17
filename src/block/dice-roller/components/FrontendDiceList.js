@@ -32,12 +32,14 @@ const FrontendDiceList = ( props ) => {
 		const {
 			die,
 			number,
+			multidiefn,
 		} = dieList.dataset;
 
 		const dieNum = parseInt( die.replace( 'd', '' ), 10 );
 
 		dice[ die ] = {
 			number,
+			multiDieFn: multidiefn,
 		};
 
 		for ( let i = 0; i < number; i++ ) {
