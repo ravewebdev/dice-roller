@@ -38,16 +38,18 @@ const Edit = ( props ) => {
 					<PanelRow className="dice-settings">
 						{ Object.entries( dice ).map( ( die ) => {
 							const key = die[ 0 ];
-							const attrs = die[ 1 ];
+							const { label, number } = die[ 1 ];
 
 							return (
-								<DiceInput
-									label={ attrs.label }
-									die={ key }
-									number={ attrs.number }
-									onChangeDice={ onChangeDice }
-									key={ key }
-								/>
+								<>
+									<DiceInput
+										label={ label }
+										die={ key }
+										number={ number }
+										onChangeDice={ onChangeDice }
+										key={ key }
+									/>
+								</>
 							);
 						} ) }
 					</PanelRow>
