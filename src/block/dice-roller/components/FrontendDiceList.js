@@ -68,11 +68,13 @@ const FrontendDiceList = ( props ) => {
 
 		// Perform multi-die function if set.
 		if ( isRolling && multidiefn && 0 < rolls.length ) {
+			let rollResult = null;
+
 			switch ( multidiefn ) {
 
 				// Add all rolls together.
 				case 'sum':
-					const rollResult = rolls.reduce( ( total, roll ) => {
+					rollResult = rolls.reduce( ( total, roll ) => {
 						if ( 'number' !== typeof roll ) {
 							return total;
 						}
@@ -85,6 +87,8 @@ const FrontendDiceList = ( props ) => {
 
 				// Keep highest roll.
 				case 'take-highest':
+					rollResult = Math.max( ...rolls );
+					rollResults[ die ] = null === rollResult ? null : __( 'Highest: ', 'dice-roller' ) + rollResult;
 					break;
 
 				// Keep lowest roll.
