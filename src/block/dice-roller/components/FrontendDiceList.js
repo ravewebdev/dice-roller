@@ -93,6 +93,8 @@ const FrontendDiceList = ( props ) => {
 
 				// Keep lowest roll.
 				case 'take-lowest':
+					rollResult = Math.min( ...rolls );
+					rollResults[ die ] = null === rollResult ? null : __( 'Lowest: ', 'dice-roller' ) + rollResult;
 					break;
 
 				// Drop highest roll.
