@@ -16,8 +16,9 @@
 	.dice-list,
 	.die-list {
 		display: flex;
+		flex: 1 1 auto;
 		flex-wrap: wrap;
-		justify-content: space-around;
+		justify-content: center;
 	}
 
 	.die-icon {
