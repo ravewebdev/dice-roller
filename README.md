@@ -1,7 +1,7 @@
-# Initiative Tracker #
+# Dice Roller #
 
 ## Description ##
-This plugin provides the Initiative Tracker block, which can be used to organize PC (Player Character) and NPC (Non-Player Character) combat initiative scores for Table-Top Role-Playing Games.
+This plugin provides the Dice Roller block, which can be used to roll different polyhedral dice for use in Table-Top Role-Playing Games.
 
 Built with [WDS Block Starter](https://github.com/WebDevStudios/wds-block-starter).
 
