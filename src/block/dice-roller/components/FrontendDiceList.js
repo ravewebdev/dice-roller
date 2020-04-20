@@ -107,6 +107,10 @@ const FrontendDiceList = ( props ) => {
 
 				// Drop lowest roll.
 				case 'drop-lowest':
+					rollResult = rolls.filter( ( roll ) => {
+						return roll !== Math.min( ...rolls );
+					} );
+					rollResults[ die ] = null === rollResult ? null : __( 'Lowest Dropped: ', 'dice-roller' ) + rollResult.join( ', ' );
 					break;
 			}
 		}
