@@ -52,7 +52,7 @@ const FrontendDiceList = ( props ) => {
 			}
 
 			// Retrieve existing roll value if exists and not currently rolling.
-			dice[ die ][ `roll_${ i }` ] = dieRolls.hasOwnProperty( index ) ? dieRolls[ index ] : '\u00A0'; // Default to '&nbsp;'.
+			dice[ die ][ `roll_${ i }` ] = dieRolls.hasOwnProperty( index ) ? dieRolls[ index ] : null;
 		}
 	} );
 
