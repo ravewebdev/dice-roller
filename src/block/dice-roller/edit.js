@@ -5,8 +5,8 @@ import { PanelBody, PanelRow } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
 
-import DiceInput from './components/DiceInput';
 import Dice from './components/Dice';
+import DieOptions from './components/DieOptions';
 
 const Edit = ( props ) => {
 	const {
@@ -28,6 +28,17 @@ const Edit = ( props ) => {
 		} );
 	};
 
+	// Update multi-die fn for current die.
+	const onChangeMultiDieFn = ( die, multiDieFn ) => {
+		const newDice = { ...dice };
+		multiDieFn = '' === multiDieFn ? null : multiDieFn;
+		newDice[ die ].multiDieFn = multiDieFn;
+
+		setAttributes( {
+			dice: newDice,
+		} );
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -36,20 +47,14 @@ const Edit = ( props ) => {
 					initialOpen={ true }
 				>
 					<PanelRow className="dice-settings">
-						{ Object.entries( dice ).map( ( die ) => {
-							const key = die[ 0 ];
-							const attrs = die[ 1 ];
-
-							return (
-								<DiceInput
-									label={ attrs.label }
-									die={ key }
-									number={ attrs.number }
-									onChangeDice={ onChangeDice }
-									key={ key }
-								/>
-							);
-						} ) }
+						{ Object.entries( dice ).map( ( die ) => (
+							<DieOptions
+								die={ die }
+								key={ die[ 0 ] }
+								onChangeDice={ onChangeDice }
+								onChangeMultiDieFn={ onChangeMultiDieFn }
+							/>
+						) ) }
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>

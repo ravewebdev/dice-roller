@@ -15,10 +15,12 @@ const FrontendDiceList = ( props ) => {
 	const [ data, setData ] = useState( {
 		isRolling: false,
 		dieRolls: {},
+		dieResults: {},
 	} );
 	const {
 		isRolling,
 		dieRolls,
+		dieResults,
 	} = data;
 
 	const dice = {};
@@ -27,31 +29,89 @@ const FrontendDiceList = ( props ) => {
 	useEffect( () => {
 		rolledDiceRef.current = rolledDice;
 	}, [ rolledDice ] );
+	const rollResults = {};
+	const rollResultsRef = useRef( rollResults );
+	useEffect( () => {
+		rollResultsRef.current = rollResults;
+	}, [ rollResults ] );
 
 	dieLists.forEach( ( dieList ) => {
 		const {
 			die,
 			number,
+			multidiefn,
 		} = dieList.dataset;
 
 		const dieNum = parseInt( die.replace( 'd', '' ), 10 );
+		const rolls = [];
 
 		dice[ die ] = {
 			number,
+			multiDieFn: multidiefn,
 		};
 
+		// Handle individual die rolls.
 		for ( let i = 0; i < number; i++ ) {
 			const index = `${ die }_${ i }`;
 
 			if ( isRolling ) {
 
 				// Get new roll if rolling dice.
-				rolledDice[ index ] = Math.ceil( Math.random() * dieNum );
+				const roll = Math.ceil( Math.random() * dieNum );
+				rolledDice[ index ] = roll;
+				rolls.push( roll );
 			}
 
 			// Retrieve existing roll value if exists and not currently rolling.
-			dice[ die ][ `roll_${ i }` ] = dieRolls.hasOwnProperty( index ) ? dieRolls[ index ] : '\u00A0'; // Default to '&nbsp;'.
+			dice[ die ][ `roll_${ i }` ] = dieRolls.hasOwnProperty( index ) ? dieRolls[ index ] : null;
 		}
+
+		// Perform multi-die function if set.
+		if ( isRolling && multidiefn && 0 < rolls.length ) {
+			let rollResult = null;
+
+			switch ( multidiefn ) {
+
+				// Add all rolls together.
+				case 'sum':
+					rollResult = rolls.reduce( ( total, roll ) => {
+						if ( 'number' !== typeof roll ) {
+							return total;
+						}
+
+						return total + parseInt( roll, 10 );
+					}, 0 );
+
+					rollResults[ die ] = 0 === rollResult ? null : __( 'Total: ', 'dice-roller' ) + rollResult;
+					break;
+
+				// Keep highest roll.
+				case 'take-highest':
+					rollResult = Math.max( ...rolls );
+					rollResults[ die ] = null === rollResult ? null : __( 'Highest: ', 'dice-roller' ) + rollResult;
+					break;
+
+				// Keep lowest roll.
+				case 'take-lowest':
+					rollResult = Math.min( ...rolls );
+					rollResults[ die ] = null === rollResult ? null : __( 'Lowest: ', 'dice-roller' ) + rollResult;
+					break;
+
+				// Drop highest roll.
+				case 'drop-highest':
+					rolls.splice( rolls.indexOf( Math.max( ...rolls ) ), 1 );
+					rollResults[ die ] = null === rolls ? null : __( 'Highest Dropped: ', 'dice-roller' ) + rolls.join( ', ' );
+					break;
+
+				// Drop lowest roll.
+				case 'drop-lowest':
+					rolls.splice( rolls.indexOf( Math.min( ...rolls ) ), 1 );
+					rollResults[ die ] = null === rolls ? null : __( 'Lowest Dropped: ', 'dice-roller' ) + rolls.join( ', ' );
+					break;
+			}
+		}
+
+		dice[ die ].result = dieResults.hasOwnProperty( die ) ? dieResults[ die ] : null;
 	} );
 
 	return (
@@ -80,6 +140,9 @@ const FrontendDiceList = ( props ) => {
 								isRolling: false,
 								dieRolls: {
 									...rolledDiceRef.current,
+								},
+								dieResults: {
+									...rollResultsRef.current,
 								},
 							},
 						} );

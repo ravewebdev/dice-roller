@@ -1,8 +1,6 @@
 /**
  * SAVE: Dice Roller Block.
  */
-import { __ } from '@wordpress/i18n';
-
 import Dice from './components/Dice';
 
 const Save = ( props ) => {

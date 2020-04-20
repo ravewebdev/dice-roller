@@ -11,11 +11,15 @@
 .dice-settings {
 	flex-direction: column;
 
+	.die-options {
+		margin-bottom: 2rem;
+	}
+
 	.die-setting {
 		align-items: flex-end;
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: 2rem;
+		margin-bottom: 0.5rem;
 		margin-right: 0;
 		max-width: unset;
 

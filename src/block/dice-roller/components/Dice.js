@@ -27,7 +27,9 @@ const Dice = ( props ) => {
 				<div className="die" key={ `${ key }_${ i }` }>
 					{ icons[ key ] }
 					{ isLive && (
-						<div className="die-roll">{ roll }</div>
+						<div className="die-roll">
+							{ roll }
+						</div>
 					) }
 				</div>
 			);
@@ -35,18 +37,34 @@ const Dice = ( props ) => {
 
 		return {
 			key,
+			multiDieFn: attrs.multiDieFn,
 			diceList: [ ...currentDice ],
+			rollResult: attrs.result,
 		};
 	} );
 
 	return (
 		<div className="dice-list">
 			{ 0 === selectedDice.length ? emptyText : (
-				selectedDice.map( ( { key, diceList } ) => (
-					<div className={ `die-list ${ key } ${ isRolling ? 'rolling' : '' }` } data-die={ key } data-number={ diceList.length } key={ key }>
-						{ diceList }
-					</div>
-				) )
+				selectedDice.map( ( { key, multiDieFn, diceList, rollResult } ) => {
+
+					return (
+						<div
+							className={ `die-list ${ key } ${ isRolling ? 'rolling' : '' }` }
+							data-die={ key }
+							data-number={ diceList.length }
+							data-multidiefn={ multiDieFn }
+							key={ key }
+						>
+							{ diceList }
+							{ multiDieFn && rollResult && (
+								<div className="die-result">
+									{ rollResult }
+								</div>
+							) }
+						</div>
+					);
+				} )
 			) }
 		</div>
 	);
