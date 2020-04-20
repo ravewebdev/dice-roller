@@ -22,7 +22,7 @@
 
 	.die-icon {
 		height: 6rem;
-		margin: 1rem;
+		margin: 0 1rem;
 		width: 6rem;
 	}
 
@@ -37,6 +37,7 @@
 	}
 
 	.die-list {
+		margin: 1rem 0;
 
 		&.rolling {
 
