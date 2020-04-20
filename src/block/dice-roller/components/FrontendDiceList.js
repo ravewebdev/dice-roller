@@ -99,6 +99,10 @@ const FrontendDiceList = ( props ) => {
 
 				// Drop highest roll.
 				case 'drop-highest':
+					rollResult = rolls.filter( ( roll ) => {
+						return roll !== Math.max( ...rolls );
+					} );
+					rollResults[ die ] = null === rollResult ? null : __( 'Highest Dropped: ', 'dice-roller' ) + rollResult.join( ', ' );
 					break;
 
 				// Drop lowest roll.
