@@ -4,14 +4,14 @@
  * Description: A block plugin for rolling dice in Table-Top Role-Playing Games.
  * Author:      R A Van Epps
  * Author URI:  https://ravanepps.com
- * Version:     0.0.1
+ * Version:     1.0.0
  * License:     GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: dice-roller
  * Domain Path: /languages
  *
  * @package Rave\DiceRoller
- * @since 0.0.1
+ * @since 1.0.0
  */
 
 namespace Rave\DiceRoller;
@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
  * Register the block with WordPress.
  *
  * @author WebDevStudios
- * @since 0.0.1
+ * @since 1.0.0
  */
 function register_block() {
 
