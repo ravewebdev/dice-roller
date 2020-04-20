@@ -35,6 +35,8 @@ Feel free to create an issue or PR in the [Github repo here](https://github.com/
 2. Roll dice on the frontend.
 
 == Changelog ==
+= 1.0.0 =
+Added: Create Dice Roller block with frontend polyhedral rolling and custom multi-die handling.
 
 == Credits ==
 * "D100" [polyhedron](https://thenounproject.com/term/polyhedron/1460323/) icon by emilegraphics from [the Noun Project](https://thenounproject.com).
