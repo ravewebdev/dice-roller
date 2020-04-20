@@ -99,18 +99,14 @@ const FrontendDiceList = ( props ) => {
 
 				// Drop highest roll.
 				case 'drop-highest':
-					rollResult = rolls.filter( ( roll ) => {
-						return roll !== Math.max( ...rolls );
-					} );
-					rollResults[ die ] = null === rollResult ? null : __( 'Highest Dropped: ', 'dice-roller' ) + rollResult.join( ', ' );
+					rolls.splice( rolls.indexOf( Math.max( ...rolls ) ), 1 );
+					rollResults[ die ] = null === rolls ? null : __( 'Highest Dropped: ', 'dice-roller' ) + rolls.join( ', ' );
 					break;
 
 				// Drop lowest roll.
 				case 'drop-lowest':
-					rollResult = rolls.filter( ( roll ) => {
-						return roll !== Math.min( ...rolls );
-					} );
-					rollResults[ die ] = null === rollResult ? null : __( 'Lowest Dropped: ', 'dice-roller' ) + rollResult.join( ', ' );
+					rolls.splice( rolls.indexOf( Math.min( ...rolls ) ), 1 );
+					rollResults[ die ] = null === rolls ? null : __( 'Lowest Dropped: ', 'dice-roller' ) + rolls.join( ', ' );
 					break;
 			}
 		}
