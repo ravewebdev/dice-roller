@@ -24,8 +24,11 @@ Feel free to create an issue or PR in the [Github repo here](https://github.com/
 
 ## Screenshots ##
 
-![Admin Demo: Insert Dice Roller block and select dice.](assets/screenshot-1.gif)
-![Frontend Demo: Rolling dice.](assets/screenshot-2.gif)
+### Admin Demo: Insert Dice Roller block and select dice ###
+![Admin Demo: Insert Dice Roller block and select dice](assets/screenshot-1.gif)
+
+### Frontend Demo: Rolling dice ###
+![Frontend Demo: Rolling dice](assets/screenshot-2.gif)
 
 ## Changelog ##
 
