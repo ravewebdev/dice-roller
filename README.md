@@ -24,10 +24,13 @@ Feel free to create an issue or PR in the [Github repo here](https://github.com/
 
 ## Screenshots ##
 
-1. Insert Dice Roller block and select dice.
-2. Roll dice on the frontend.
+![Admin Demo: Insert Dice Roller block and select dice.](assets/screenshot-1.gif)
+![Frontend Demo: Rolling dice.](assets/screenshot-2.gif)
 
 ## Changelog ##
+
+### 1.0.1 ###
+Fixed: Added stroke property to icons with contrast color for darker screens.
 
 ### 1.0.0 ###
 Added: Create Dice Roller block with frontend polyhedral rolling and custom multi-die handling.

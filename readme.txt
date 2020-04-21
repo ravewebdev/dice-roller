@@ -31,8 +31,8 @@ Feel free to create an issue or PR in the [Github repo here](https://github.com/
 
 == Screenshots ==
 
-1. Insert Dice Roller block and select dice.
-2. Roll dice on the frontend.
+1. Admin Demo: Insert Dice Roller block and select dice.
+2. Frontend Demo: Rolling dice.
 
 == Changelog ==
 = 1.0.0 =
