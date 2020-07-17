@@ -35,9 +35,9 @@ const Dice = ( props ) => {
 	 * @return {object}    Formatted die data.
 	 */
 	selectedDice = selectedDice.map( ( die ) => {
-		const key = die[ 0 ];
-		const attrs = die[ 1 ];
-		const currentDice = [];
+		const key = die[ 0 ],
+			attrs = die[ 1 ],
+			currentDice = [];
 
 		for ( let i = 0; i < attrs.number; i++ ) {
 			const roll = isLive ? attrs[ `roll_${ i }` ] : null;

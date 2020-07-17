@@ -47,6 +47,7 @@ const Edit = ( props ) => {
 	 */
 	const onChangeDice = ( die, number ) => {
 		const newDice = { ...dice };
+
 		number = 0 > number ? 0 : number;
 		newDice[ die ].number = number;
 

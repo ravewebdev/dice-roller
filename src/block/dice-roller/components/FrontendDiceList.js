@@ -35,20 +35,24 @@ const FrontendDiceList = ( props ) => {
 		dieRolls: {},
 		dieResults: {},
 	} );
+
 	const {
 		isRolling,
 		dieRolls,
 		dieResults,
 	} = data;
 
-	const dice = {};
-	const rolledDice = {};
-	const rolledDiceRef = useRef( rolledDice );
+	const dice = {},
+		rolledDice = {},
+		rolledDiceRef = useRef( rolledDice );
+
 	useEffect( () => {
 		rolledDiceRef.current = rolledDice;
 	}, [ rolledDice ] );
-	const rollResults = {};
-	const rollResultsRef = useRef( rollResults );
+
+	const rollResults = {},
+		rollResultsRef = useRef( rollResults );
+
 	useEffect( () => {
 		rollResultsRef.current = rollResults;
 	}, [ rollResults ] );
@@ -60,8 +64,8 @@ const FrontendDiceList = ( props ) => {
 			multidiefn,
 		} = dieList.dataset;
 
-		const dieNum = parseInt( die.replace( 'd', '' ), 10 );
-		const rolls = [];
+		const dieNum = parseInt( die.replace( 'd', '' ), 10 ),
+			rolls = [];
 
 		dice[ die ] = {
 			number,
