@@ -2,6 +2,8 @@
  * EDIT: Dice Roller Block
  */
 
+import { InspectorControls } from '@wordpress/block-editor';
+
 import Dice from './components/Dice';
 import DieOptions from './components/DieOptions';
 
@@ -12,9 +14,6 @@ const {
 	components: {
 		PanelBody,
 		PanelRow,
-	},
-	editor: {
-		InspectorControls,
 	},
 } = wp;
 
