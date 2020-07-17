@@ -1,12 +1,22 @@
 /**
  * EDIT: Dice Roller Block
  */
-import { PanelBody, PanelRow } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
-import { InspectorControls } from '@wordpress/block-editor';
 
 import Dice from './components/Dice';
 import DieOptions from './components/DieOptions';
+
+const {
+	i18n: {
+		__,
+	},
+	components: {
+		PanelBody,
+		PanelRow,
+	},
+	editor: {
+		InspectorControls,
+	},
+} = wp;
 
 /**
  * Handle edit functionality in the admin.

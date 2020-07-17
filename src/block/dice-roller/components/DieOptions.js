@@ -1,10 +1,17 @@
 /**
  * Display selection die options.
  */
-import { SelectControl } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
 
 import DiceInput from './DiceInput';
+
+const {
+	i18n: {
+		__,
+	},
+	components: {
+		SelectControl,
+	},
+} = wp;
 
 /**
  * Handle render of die options.

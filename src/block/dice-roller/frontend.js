@@ -4,7 +4,11 @@
 
 import FrontendDiceList from './components/FrontendDiceList';
 
-const { render } = wp.element;
+const {
+	element: {
+		render,
+	},
+} = wp;
 
 const wrapClass = 'wp-block-rave-dice-roller';
 const rollers = document.querySelectorAll( `.${ wrapClass }` );

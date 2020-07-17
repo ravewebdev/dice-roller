@@ -1,10 +1,19 @@
 /**
  * Display frontend dice list.
  */
-import { __ } from '@wordpress/i18n';
-import { useState, useRef, useEffect } from 'react';
 
 import Dice from './Dice';
+
+const {
+	i18n: {
+		__,
+	},
+	element: {
+		useEffect,
+		useRef,
+		useState,
+	},
+} = wp;
 
 /**
  * Frontend Dice Roller.

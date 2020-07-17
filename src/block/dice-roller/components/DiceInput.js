@@ -1,9 +1,14 @@
 /**
  * DiceInput Component.
  */
-import { TextControl } from '@wordpress/components';
 
 import icons from '../icons';
+
+const {
+	components: {
+		TextControl,
+	},
+} = wp;
 
 /**
  * Handle render of dice input.
