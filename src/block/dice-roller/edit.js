@@ -1,5 +1,5 @@
 /**
- * EDIT: Dice Roller Block.
+ * EDIT: Dice Roller Block
  */
 import { PanelBody, PanelRow } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
@@ -8,6 +8,15 @@ import { InspectorControls } from '@wordpress/block-editor';
 import Dice from './components/Dice';
 import DieOptions from './components/DieOptions';
 
+/**
+ * Handle edit functionality in the admin.
+ *
+ * @author R A Van Epps <rave@ravanepps.com>
+ * @since  1.0.0
+ *
+ * @param  {Object} props Block props.
+ * @return {ReactElement} Block edit JSX.
+ */
 const Edit = ( props ) => {
 	const {
 		attributes: {
@@ -17,7 +26,15 @@ const Edit = ( props ) => {
 		setAttributes,
 	} = props;
 
-	// Update number of current die.
+	/**
+	 * Update number of current die.
+	 *
+	 * @author R A Van Epps <rave@ravanepps.com>
+	 * @since  1.0.0
+	 *
+	 * @param  {string} die    Die number.
+	 * @param  {number} number Count of current die.
+	 */
 	const onChangeDice = ( die, number ) => {
 		const newDice = { ...dice };
 		number = 0 > number ? 0 : number;
@@ -28,7 +45,15 @@ const Edit = ( props ) => {
 		} );
 	};
 
-	// Update multi-die fn for current die.
+	/**
+	 * Update multi-die fn for current die.
+	 *
+	 * @author R A Van Epps <rave@ravanepps.com>
+	 * @since  1.0.0
+	 *
+	 * @param  {string} die        Die number.
+	 * @param  {string} multiDieFn Type of multi-die handling function.
+	 */
 	const onChangeMultiDieFn = ( die, multiDieFn ) => {
 		const newDice = { ...dice };
 		multiDieFn = '' === multiDieFn ? null : multiDieFn;

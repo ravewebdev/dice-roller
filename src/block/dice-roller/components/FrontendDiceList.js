@@ -6,6 +6,15 @@ import { useState, useRef, useEffect } from 'react';
 
 import Dice from './Dice';
 
+/**
+ * Frontend Dice Roller.
+ *
+ * @author R A Van Epps <rave@ravanepps.com>
+ * @since  1.0.0
+ *
+ * @param  {Object} props Component props.
+ * @return {ReactElement} Component render JSX.
+ */
 const FrontendDiceList = ( props ) => {
 	const {
 		dieLists,

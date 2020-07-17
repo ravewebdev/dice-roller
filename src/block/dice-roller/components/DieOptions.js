@@ -6,6 +6,15 @@ import { __ } from '@wordpress/i18n';
 
 import DiceInput from './DiceInput';
 
+/**
+ * Handle render of die options.
+ *
+ * @author R A Van Epps <rave@ravanepps.com>
+ * @since  1.0.0
+ *
+ * @param  {Object} props Component props.
+ * @return {ReactElement} Component render JSX.
+ */
 const DieOptions = ( props ) => {
 	const {
 		die: [ key, { label, number, multiDieFn } ],

@@ -1,8 +1,18 @@
 /**
  * Display selected dice icons.
  */
+
 import icons from '../icons';
 
+/**
+ * Handle render of dice.
+ *
+ * @author R A Van Epps <rave@ravanepps.com>
+ * @since  1.0.0
+ *
+ * @param  {Object} props Component props.
+ * @return {ReactElement} Component render JSX.
+ */
 const Dice = ( props ) => {
 	const {
 		dice,
@@ -15,6 +25,15 @@ const Dice = ( props ) => {
 		return ( 0 < die[ 1 ].number );
 	} );
 
+	/**
+	 * Iterate over selected dice, displaying icons and rolls.
+	 *
+	 * @author R A Van Epps <rave@ravanepps.com>
+	 * @since  1.0.0
+	 *
+	 * @param  {array} die Current die data.
+	 * @return {object}    Formatted die data.
+	 */
 	selectedDice = selectedDice.map( ( die ) => {
 		const key = die[ 0 ];
 		const attrs = die[ 1 ];

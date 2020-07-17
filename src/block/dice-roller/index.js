@@ -1,5 +1,7 @@
 /**
- * REGISTER: Dice Roller Block.
+ * BLOCK: Dice Roller Block.
+ *
+ * Register Dice Roller
  */
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
@@ -9,6 +11,9 @@ import save from './save';
 import icons from './icons';
 import diceAttr from './diceAttr';
 
+/**
+ * Register Dice Roller block.
+ */
 registerBlockType( 'rave/dice-roller', {
 	title: __( 'Dice Roller', 'dice-roller' ),
 	icon: icons.d20,
