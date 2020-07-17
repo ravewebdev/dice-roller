@@ -39,6 +39,9 @@ Feel free to create an issue or PR in the [Github repo here](https://github.com/
 
 == Changelog ==
 
+= 1.0.2 =
+* Updated: Cleaned up code, comments to be more in line with similar blocks (e.g., Initiative Tracker).
+
 = 1.0.1 =
 * Fixed: Updated icon styling for accessibility on darker screens.
 

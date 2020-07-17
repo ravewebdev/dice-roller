@@ -1,6 +1,7 @@
 # Dice Roller #
 
 ## Description ##
+
 This plugin provides the Dice Roller block, which can be used to roll different polyhedral dice for use in Table-Top Role-Playing Games.
 
 Built with [WDS Block Starter](https://github.com/WebDevStudios/wds-block-starter).
@@ -32,13 +33,17 @@ Feel free to create an issue or PR in the [Github repo here](https://github.com/
 
 ## Changelog ##
 
+### 1.0.2 ###
+* Updated: Cleaned up code, comments to be more in line with similar blocks (e.g., Initiative Tracker).
+
 ### 1.0.1 ###
-Fixed: Added stroke property to icons with contrast color for darker screens.
+* Fixed: Added stroke property to icons with contrast color for darker screens.
 
 ### 1.0.0 ###
-Added: Create Dice Roller block with frontend polyhedral rolling and custom multi-die handling.
+* Added: Create Dice Roller block with frontend polyhedral rolling and custom multi-die handling.
 
 ## Credits ##
+
 * "D100" [polyhedron](https://thenounproject.com/term/polyhedron/1460323/) icon by emilegraphics from [the Noun Project](https://thenounproject.com).
 * "D20" [icosahedron](https://thenounproject.com/term/icosahedron/6890) icon by Alessandro Bertoni from [the Noun Project](https://thenounproject.com).
 * "D12" [dodecahedron](https://thenounproject.com/term/dodecahedron/6889) icon by Alessandro Bertoni from [the Noun Project](https://thenounproject.com).
