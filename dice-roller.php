@@ -4,7 +4,7 @@
  * Description: A block plugin for rolling dice in Table-Top Role-Playing Games.
  * Author:      R A Van Epps
  * Author URI:  https://ravanepps.com
- * Version:     1.0.0
+ * Version:     1.0.1
  * License:     GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: dice-roller
