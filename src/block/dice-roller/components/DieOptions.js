@@ -49,6 +49,8 @@ const DieOptions = ( props ) => {
 						{ value: 'take-lowest', label: __( 'Keep the lowest roll', 'dice-roller' ) },
 						{ value: 'drop-highest', label: __( 'Drop the highest roll', 'dice-roller' ) },
 						{ value: 'drop-lowest', label: __( 'Drop the lowest roll', 'dice-roller' ) },
+						{ value: 'sum-lowest', label: __( 'Drop the highest roll & sum', 'dice-roller' ) },
+						{ value: 'sum-highest', label: __( 'Drop the lowest roll & sum', 'dice-roller' ) },
 					] }
 					onChange={ ( newMultiDieFn ) => {
 						onChangeMultiDieFn( key, newMultiDieFn );
