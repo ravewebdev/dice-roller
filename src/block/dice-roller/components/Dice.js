@@ -54,11 +54,18 @@ const Dice = ( props ) => {
 			);
 		}
 
+		let rollResult = 'object' !== typeof attrs || ! attrs.hasOwnProperty( 'result' ) || 'object' !== typeof attrs.result ? null : attrs.result;
+
+		rollResult = null === rollResult ? null : {
+			message: rollResult.hasOwnProperty( 'message' ) ? attrs.result.message : '',
+			value: rollResult.hasOwnProperty( 'value' ) ? attrs.result.value : 0,
+		};
+
 		return {
 			key,
 			multiDieFn: attrs.multiDieFn,
 			diceList: [ ...currentDice ],
-			rollResult: attrs.result,
+			rollResult,
 		};
 	} );
 
@@ -66,7 +73,6 @@ const Dice = ( props ) => {
 		<div className="dice-list">
 			{ 0 === selectedDice.length ? emptyText : (
 				selectedDice.map( ( { key, multiDieFn, diceList, rollResult } ) => {
-
 					return (
 						<div
 							className={ `die-list ${ key } ${ isRolling ? 'rolling' : '' }` }
@@ -77,8 +83,8 @@ const Dice = ( props ) => {
 						>
 							{ diceList }
 							{ multiDieFn && rollResult && (
-								<div className="die-result">
-									{ rollResult }
+								<div className="die-result" data-value={ rollResult.value }>
+									{ rollResult.message }
 								</div>
 							) }
 						</div>
