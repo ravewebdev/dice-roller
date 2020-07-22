@@ -39,6 +39,10 @@ Feel free to create an issue or PR in the [Github repo here](https://github.com/
 
 == Changelog ==
 
+= 1.1.0 =
+* Added: Added additional Multi-die handling options for returning sum resulting from dropping the highest or lowest roll.
+* Added: Created data attribute for roll result values.
+
 = 1.0.2 =
 * Updated: Cleaned up code, comments to be more in line with similar blocks (e.g., Initiative Tracker).
 
