@@ -130,6 +130,18 @@ const FrontendDiceList = ( props ) => {
 					rolls.splice( rolls.indexOf( Math.min( ...rolls ) ), 1 );
 					rollResults[ die ] = null === rolls ? null : __( 'Lowest Dropped: ', 'dice-roller' ) + rolls.join( ', ' );
 					break;
+
+				// Drop highest roll & sum.
+				case 'sum-lowest':
+					rolls.splice( rolls.indexOf( Math.max( ...rolls ) ), 1 );
+					rollResults[ die ] = null === rolls ? null : __( 'Sum with Highest Dropped: ', 'dice-roller' ) + rolls.reduce( ( roll1, roll2 ) => parseInt( roll1, 10 ) + parseInt( roll2, 10 ) );
+					break;
+
+				// Drop lowest roll & sum.
+				case 'sum-highest':
+					rolls.splice( rolls.indexOf( Math.min( ...rolls ) ), 1 );
+					rollResults[ die ] = null === rolls ? null : __( 'Sum with Lowest Dropped: ', 'dice-roller' ) + rolls.reduce( ( roll1, roll2 ) => parseInt( roll1, 10 ) + parseInt( roll2, 10 ) );
+					break;
 			}
 		}
 
