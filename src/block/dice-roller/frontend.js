@@ -10,8 +10,8 @@ const {
 	},
 } = wp;
 
-const wrapClass = 'wp-block-rave-dice-roller';
-const rollers = document.querySelectorAll( `.${ wrapClass }` );
+const wrapClass = '.wp-block-rave-dice-roller',
+	rollers = document.querySelectorAll( wrapClass );
 
 /**
  * Retrieve and re-render dice roller blocks.
@@ -27,7 +27,6 @@ rollers.forEach( ( roller ) => {
 	render(
 		<FrontendDiceList
 			dieLists={ dieLists }
-			className={ wrapClass }
 		/>,
 		roller
 	);
