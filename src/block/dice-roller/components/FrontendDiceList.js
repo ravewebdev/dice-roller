@@ -27,7 +27,6 @@ const {
 const FrontendDiceList = ( props ) => {
 	const {
 		dieLists,
-		className,
 	} = props;
 
 	const [ data, setData ] = useState( {
@@ -180,7 +179,7 @@ const FrontendDiceList = ( props ) => {
 	} );
 
 	return (
-		<div className={ className }>
+		<>
 			<Dice
 				dice={ dice }
 				emptyText={ null }
@@ -216,7 +215,7 @@ const FrontendDiceList = ( props ) => {
 			>
 				{ isRolling ? __( 'Rolling...', 'dice-roller' ) : __( 'Roll these dice!', 'dice-roller' ) }
 			</button>
-		</div>
+		</>
 	);
 };
 
