@@ -9,6 +9,8 @@ import save from './save';
 import icons from './icons';
 import diceAttr from './diceAttr';
 
+import './style.scss';
+
 const {
 	i18n: {
 		__,

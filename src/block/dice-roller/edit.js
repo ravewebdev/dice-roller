@@ -7,6 +7,8 @@ import { InspectorControls } from '@wordpress/block-editor';
 import Dice from './components/Dice';
 import DieOptions from './components/DieOptions';
 
+import './editor.scss';
+
 const {
 	i18n: {
 		__,
