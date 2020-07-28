@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, rpg, role-playing game, dice
 Requires at least: 5.2
 Tested up to: 5.4.0
 Requires PHP: 7.0.0
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -38,6 +38,10 @@ Feel free to create an issue or PR in the [Github repo here](https://github.com/
 2. Frontend Demo: Rolling dice.
 
 == Changelog ==
+
+= 1.1.2 =
+* Fixed: Updated webpack config and js setup to work with wp-scripts v12.
+* Updated: Brought npm packages up to latest versions.
 
 = 1.1.1 =
 * Fixed: Removed duplicate block wrapper `div` on frontend display.
