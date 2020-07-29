@@ -45,6 +45,30 @@ const FrontendDiceList = ( props ) => {
 
 	const isRolling = applyFilters( 'rave.diceRoller.isRolling', data.isRolling );
 
+	// Update dieRolls state and end roll if isRolling is true.
+	useEffect( () => {
+		if ( ! isRolling ) {
+			return;
+		}
+
+		const timer = setTimeout( () => {
+			setData( {
+				...data,
+				...{
+					isRolling: false,
+					dieRolls: {
+						...rolledDiceRef.current,
+					},
+					dieResults: {
+						...rollResultsRef.current,
+					},
+				},
+			} );
+		}, 750 );
+
+		return () => clearTimeout( timer );
+	}, [ isRolling ] );
+
 	const dice = {},
 		rolledDice = {},
 		rolledDiceRef = useRef( rolledDice );
@@ -199,22 +223,6 @@ const FrontendDiceList = ( props ) => {
 						...data,
 						isRolling: true,
 					} );
-
-					// Update dieRolls state and end roll.
-					setTimeout( () => {
-						setData( {
-							...data,
-							...{
-								isRolling: false,
-								dieRolls: {
-									...rolledDiceRef.current,
-								},
-								dieResults: {
-									...rollResultsRef.current,
-								},
-							},
-						} );
-					}, 750 );
 				} }
 			>
 				{ isRolling ? __( 'Rolling...', 'dice-roller' ) : __( 'Roll these dice!', 'dice-roller' ) }
