@@ -117,7 +117,8 @@ const FrontendDiceList = ( props ) => {
 
 		// Perform multi-die function if set.
 		if ( isRolling && multidiefn && 0 < rolls.length ) {
-			let rollResult = null;
+			let rollResult = null,
+				message = '';
 
 			switch ( multidiefn ) {
 
@@ -130,77 +131,55 @@ const FrontendDiceList = ( props ) => {
 
 						return total + parseInt( roll, 10 );
 					}, 0 );
-
-					rollResults[ die ] = 0 === rollResult ? null : {
-						message: __( 'Total: ', 'dice-roller' ) + rollResult,
-						value: rollResult,
-					};
+					rollResult = 0 === rollResult ? null : rollResult;
+					message = __( 'Total:', 'dice-roller' );
 					break;
 
 				// Keep highest roll.
 				case 'take-highest':
 					rollResult = Math.max( ...rolls );
-
-					rollResults[ die ] = null === rollResult ? null : {
-						message: __( 'Highest: ', 'dice-roller' ) + rollResult,
-						value: rollResult,
-					};
+					message = __( 'Highest:', 'dice-roller' );
 					break;
 
 				// Keep lowest roll.
 				case 'take-lowest':
 					rollResult = Math.min( ...rolls );
-
-					rollResults[ die ] = null === rollResult ? null : {
-						message: __( 'Lowest: ', 'dice-roller' ) + rollResult,
-						value: rollResult,
-					};
+					message = __( 'Lowest:', 'dice-roller' );
 					break;
 
 				// Drop highest roll.
 				case 'drop-highest':
 					rolls.splice( rolls.indexOf( Math.max( ...rolls ) ), 1 );
 					rollResult = ! Array.isArray( rolls ) ? null : rolls.join( ', ' );
-
-					rollResults[ die ] = null === rollResult ? null : {
-						message: __( 'Highest Dropped: ', 'dice-roller' ) + rollResult,
-						value: rollResult,
-					};
+					message = __( 'Highest Dropped:', 'dice-roller' );
 					break;
 
 				// Drop lowest roll.
 				case 'drop-lowest':
 					rolls.splice( rolls.indexOf( Math.min( ...rolls ) ), 1 );
 					rollResult = ! Array.isArray( rolls ) ? null : rolls.join( ', ' );
-
-					rollResults[ die ] = null === rollResult ? null : {
-						message: __( 'Lowest Dropped: ', 'dice-roller' ) + rollResult,
-						value: rollResult,
-					};
+					message = __( 'Lowest Dropped:', 'dice-roller' );
 					break;
 
 				// Drop highest roll & sum.
 				case 'sum-lowest':
 					rolls.splice( rolls.indexOf( Math.max( ...rolls ) ), 1 );
 					rollResult = ! Array.isArray( rolls ) ? null : rolls.reduce( ( roll1, roll2 ) => parseInt( roll1, 10 ) + parseInt( roll2, 10 ) );
-
-					rollResults[ die ] = null === rolls ? null : {
-						message: __( 'Sum with Highest Dropped: ', 'dice-roller' ) + rollResult,
-						value: rollResult,
-					};
+					message = __( 'Sum with Highest Dropped:', 'dice-roller' );
 					break;
 
 				// Drop lowest roll & sum.
 				case 'sum-highest':
 					rolls.splice( rolls.indexOf( Math.min( ...rolls ) ), 1 );
 					rollResult = ! Array.isArray( rolls ) ? null : rolls.reduce( ( roll1, roll2 ) => parseInt( roll1, 10 ) + parseInt( roll2, 10 ) );
-
-					rollResults[ die ] = null === rolls ? null : {
-						message: __( 'Sum with Lowest Dropped: ', 'dice-roller' ) + rollResult,
-						value: rollResult,
-					};
+					message = __( 'Sum with Lowest Dropped:', 'dice-roller' );
 					break;
 			}
+
+			rollResults[ die ] = null === rollResult ? null : {
+				message: `${ message } ${ rollResult }`,
+				value: rollResult,
+			};
 		}
 
 		dice[ die ].result = dieResults.hasOwnProperty( die ) ? dieResults[ die ] : null;
