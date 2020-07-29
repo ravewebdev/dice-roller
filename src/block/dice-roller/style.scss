@@ -16,8 +16,7 @@ $color-white: #fff;
 
 .wp-block-rave-dice-roller {
 
-	.dice-list,
-	.die-list {
+	.dice-list {
 		display: flex;
 		flex: 1 1 auto;
 		flex-wrap: wrap;
@@ -44,7 +43,8 @@ $color-white: #fff;
 	}
 
 	.die-list {
-		margin: 1rem 0;
+		display: inline-block;
+		margin: 1rem;
 
 		&.rolling {
 
@@ -56,8 +56,11 @@ $color-white: #fff;
 		}
 
 		.die-result {
-			flex-basis: 100%;
 			text-align: center;
+		}
+
+		.die {
+			display: inline-block;
 		}
 	}
 
