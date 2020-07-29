@@ -13,6 +13,9 @@ const {
 		useRef,
 		useState,
 	},
+	hooks: {
+		applyFilters,
+	},
 } = wp;
 
 /**
@@ -36,10 +39,11 @@ const FrontendDiceList = ( props ) => {
 	} );
 
 	const {
-		isRolling,
 		dieRolls,
 		dieResults,
 	} = data;
+
+	const isRolling = applyFilters( 'rave.diceRoller.isRolling', data.isRolling );
 
 	const dice = {},
 		rolledDice = {},
