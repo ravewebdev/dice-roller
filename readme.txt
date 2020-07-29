@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, rpg, role-playing game, dice
 Requires at least: 5.2
 Tested up to: 5.4.0
 Requires PHP: 7.0.0
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -38,6 +38,9 @@ Feel free to create an issue or PR in the [Github repo here](https://github.com/
 2. Frontend Demo: Rolling dice.
 
 == Changelog ==
+
+= 1.1.4 =
+* Fixed: Centered die list to align elements properly when result text length exceeds width of dice.
 
 = 1.1.3 =
 * Updated: Simplified dice list styling to avoid size jumps after rolling.

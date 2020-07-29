@@ -33,6 +33,9 @@ Feel free to create an issue or PR in the [Github repo here](https://github.com/
 
 ## Changelog ##
 
+### 1.1.4 ###
+* Fixed: Centered die list to align elements properly when result text length exceeds width of dice.
+
 ### 1.1.3 ###
 * Updated: Simplified dice list styling to avoid size jumps after rolling.
 
