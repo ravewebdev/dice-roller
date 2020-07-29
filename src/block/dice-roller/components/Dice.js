@@ -45,7 +45,7 @@ const Dice = ( props ) => {
 			currentDice.push(
 				<div className="die" key={ `${ key }_${ i }` }>
 					{ icons[ key ] }
-					{ isLive && (
+					{ isLive && ! isRolling && (
 						<div className="die-roll">
 							{ roll }
 						</div>
@@ -82,7 +82,7 @@ const Dice = ( props ) => {
 							key={ key }
 						>
 							{ diceList }
-							{ multiDieFn && rollResult && (
+							{ ! isRolling && multiDieFn && rollResult && (
 								<div className="die-result" data-value={ rollResult.value }>
 									{ rollResult.message }
 								</div>
