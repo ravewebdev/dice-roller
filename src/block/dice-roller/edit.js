@@ -17,6 +17,9 @@ const {
 		PanelBody,
 		PanelRow,
 	},
+	hooks: {
+		applyFilters,
+	},
 } = wp;
 
 /**
@@ -76,25 +79,36 @@ const Edit = ( props ) => {
 		} );
 	};
 
+	/**
+	 * Determine whether dice roller settings should be shown.
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  {boolean} showSettings Whether dice roller settings should be shown.
+	 */
+	const showSettings = applyFilters( 'rave.diceRoller.showSettings', true );
+
 	return (
 		<>
-			<InspectorControls>
-				<PanelBody
-					title={ __( 'Dice Roller Options', 'dice-roller' ) }
-					initialOpen={ true }
-				>
-					<PanelRow className="dice-settings">
-						{ Object.entries( dice ).map( ( die ) => (
-							<DieOptions
-								die={ die }
-								key={ die[ 0 ] }
-								onChangeDice={ onChangeDice }
-								onChangeMultiDieFn={ onChangeMultiDieFn }
-							/>
-						) ) }
-					</PanelRow>
-				</PanelBody>
-			</InspectorControls>
+			{ showSettings && (
+				<InspectorControls>
+					<PanelBody
+						title={ __( 'Dice Roller Options', 'dice-roller' ) }
+						initialOpen={ true }
+					>
+						<PanelRow className="dice-settings">
+							{ Object.entries( dice ).map( ( die ) => (
+								<DieOptions
+									die={ die }
+									key={ die[ 0 ] }
+									onChangeDice={ onChangeDice }
+									onChangeMultiDieFn={ onChangeMultiDieFn }
+								/>
+							) ) }
+						</PanelRow>
+					</PanelBody>
+				</InspectorControls>
+			) }
 			<div className={ className }>
 				<Dice
 					dice={ dice }
