@@ -176,8 +176,20 @@ const FrontendDiceList = ( props ) => {
 					break;
 			}
 
+			/**
+			 * Customize the die roll result message.
+			 *
+			 * @since  NEXT
+			 *
+			 * @param  {string}         message     Full result message.
+			 * @param  {string}         messageText Result message text, minus actual roll result.
+			 * @param  {?number|string} result      Roll result.
+			 * @param  {string}         multidiefn  Multi-die handling function name.
+			 */
+			message = applyFilters( 'rave.diceRoller.rollResult', `${ message } ${ rollResult }`, message, rollResult, multidiefn );
+
 			rollResults[ die ] = null === rollResult ? null : {
-				message: `${ message } ${ rollResult }`,
+				message,
 				value: rollResult,
 			};
 		}
