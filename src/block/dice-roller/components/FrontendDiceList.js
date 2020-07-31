@@ -39,18 +39,10 @@ const FrontendDiceList = ( props ) => {
 	} );
 
 	const {
+		isRolling,
 		dieRolls,
 		dieResults,
 	} = data;
-
-	/**
-	 * Determine if dice are being rolled.
-	 *
-	 * @since  NEXT
-	 *
-	 * @param  {boolean} isRolling Whether dice are being rolled.
-	 */
-	const isRolling = applyFilters( 'rave.diceRoller.isRolling', data.isRolling );
 
 	// Update dieRolls state and end roll if isRolling is true.
 	useEffect( () => {
